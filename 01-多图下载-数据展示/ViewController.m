@@ -180,5 +180,15 @@
     return cell;
 }
 
+/*
+ 当下载图片过多，内存占用的过多，就自动调用下面的方法，remove所有的images
+ */
+-(void)didReceiveMemoryWarning {
+    
+    [self.images removeAllObjects];
+    
+    // 取消队列中的所有操作
+    [self.queue cancelAllOperations];
+}
 
 @end
